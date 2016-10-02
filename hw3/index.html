@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hw3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
 
+//          треульник
+
+            for (var i = "*"; i.length < 8; i += "*") {
+                console.log(i);
+            }
+
+//          шахматная доска
+
+            var k = prompt(); //размер доски
+            for (var j = 0; j <= k - 1; j++) {
+                var n = j % 2;
+                for (var i = n; i <= k - 1 + n; i++) {
+                    console.log((i & 1) ? "#" : "\u00A0");
+                }
+                console.log("<br>");
+            }
+
+        </script>
+    </body>
+</html>
