@@ -25,7 +25,7 @@
 
             function number(a) {
                 var obj = {};
-                if (a < 0 && a > 999) {
+                if (a < 0 || a > 999) {
                     return obj;
                 } else {
                     obj["единицы"] = a.charAt(a.length - 1);
