@@ -25,16 +25,16 @@
 
             function number(a) {
                 var obj = {};
-                if (a < 0 || a > 999) {
-                    return obj;
-                } else {
+                if (a >= 0 && a <= 999) {
                     obj["единицы"] = a.charAt(a.length - 1);
                     obj["десятки"] = a.charAt(a.length - 2);
                     obj["сотни"] = a.charAt(a.length - 3);
-                }
-                console.log(obj);
+                } else {
+                    obj["диапазон"] = "Меньше 0 или больше 999";
+                } 
+                 return obj;
             }
-            number(prompt("введите число"));
+            console.log(number(prompt("введите число")));
 
         </script>
     </body>
