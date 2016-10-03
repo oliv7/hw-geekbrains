@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+//            #1
+            function min(a, b) {
+                console.log((a == b) ? "Числа равны" : (a < b) ? a : b);
+            }
+            console.log(min(10, 0));
 
+
+//           #2 посчитать количество символов b
+            function countBs(word) {
+                var simbol = 0;
+                for (var i = 0; i <= word.length; i++) {
+                    if (word.charAt(i) == "b") {
+                        simbol++;
+                    }
+                }
+                return console.log(simbol);
+            }
+            countBs("bbbsssbsdd");
+
+
+//          #2.2 искать введенный символ
+            function countChar(str, symb) {
+                var simbol = 0;
+                for (var i = 0; i <= str.length; i++) {
+                    if (str.charAt(i) == symb) {
+                        simbol++;
+                    }
+                }
+                return simbol;
+            }
+            var test = prompt("Введите строку");
+            var sym = prompt("Какой символ ищем?");
+            console.log("Количество символов '" + sym.charAt(0) + "' в строке '" + test + "'= " + countChar(test, sym.charAt(0)));
+
+//          #3 
+            function isEven(a) {
+                a = Math.abs(a);
+                return (a <= 1) ? (a == 0) : isEven(a - 2);
+            }
+            var number = prompt();
+            console.log(isEven(number))
+        </script>
+    </body>
+</html>
