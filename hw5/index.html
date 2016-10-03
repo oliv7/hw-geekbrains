@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dz5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+//            #1
+            function rgbToHex(r, g, b) {
+                r = r.toString(16);
+                g = g.toString(16);
+                b = b.toString(16);
+                r = r.length > 1 ? r : "0" + r;
+                    g = g.length > 1 ? g : "0" + g;
+                    b = b.length > 1 ? b : "0" + b;
+                    return ("#" + r + g + b).toUpperCase();
+                }
+                console.log(rgbToHex(255, 255, 255));
+
+//             #2
+
+            function number(a) {
+                var obj = {};
+                if (a < 0 && a > 999) {
+                    return obj;
+                } else {
+                    obj["единицы"] = a.charAt(a.length - 1);
+                    obj["десятки"] = a.charAt(a.length - 2);
+                    obj["сотни"] = a.charAt(a.length - 3);
+                }
+                console.log(obj);
+            }
+            number(prompt("введите число"));
+
+        </script>
+    </body>
+</html>
 
