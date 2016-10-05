@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Dz6</title> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head> 
+    <body> 
+        <!--задание 1--> 
+        <script>
+
+            function arrayToList(a) {
+                var result = null;
+                for (var i = a.length - 1; i >= 0; i--) {
+                    result = {
+                        value: a[i],
+                        rest: result
+                    }
+                }
+                return result;
+            }
+
+            function listToArray(funct_list) {
+                var t = [];
+                for (var i in funct_list) { // перебираем ключи объекта переданном в параметре текущей ф-и 
+                    if (typeof (funct_list[i]) == "object" && funct_list[i] != null) { // проверяем тип данных 
+                        t[i] = listToArray(funct_list[i]);
+                    } else {
+                        t[i] = funct_list[i];
+                    }
+                }
+                return t;
+            }
+
+            function prepend(elment) {
+                var newList = {
+                    value: elment,
+                    rest: this
+                };
+                return newList;
+            }
+
+            function nth(obj, num) {
+                if (obj.value == num) {
+                    return obj.rest;
+                } else {
+                    if (obj.rest == null || obj.rest == undefined) {
+                        return undefined;
+                    } else {
+                        return nth(obj.rest, num);
+                    }
+                }
+            }
+
+            console.log(arrayToList([10, 20, 30])); // вызываем ф-ю указываем аргументы 
+
+            console.log(listToArray(arrayToList([10, 20, 30]))); //  преобразуем объект в массив 
+
+            var list = (arrayToList([10, 20, 30]));
+            var list2 = prepend.bind(list, 0); // console.log(list2()); this ф-и prepend указываем на объект list и возвращаем ссылку на ф-ю с параметром 0 
+
+            var list3 = nth(list2(), 1); // console.log(list3); В Объекте list3 вызываем р-т вычисления ф-и nth 
+
+        </script> 
+
+        <!--задание 2--> 
+        <script>
+
+            function reverseArray(array) {
+                var new_array = [];
+                for (var i = array.length-1; i >= 0; i--) { 
+                    new_array.push(array[i]);
+                }
+                return new_array;
+            }
+
+            function reverseArrayInPlace(new_array2) {
+                for (var i = 0, l = new_array2.length; i <= l; i++) { // перебираем элементы массива полученные через параметр ф-и 
+                    new_array2.unshift(new_array2.pop());
+                }
+                return new_array2;
+            }
+
+            var count = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+            console.log(reverseArray(count));
+            console.log(reverseArrayInPlace(count));
+
+        </script> 
+
+
+    </body> 
+</html>
